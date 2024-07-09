@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Agendamento</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <div>
+                <label for="nome">Nome:</label> 
+                <input type="text" name="nome" id="inNome">
+            </div>
+            <br>
+            <div>
+                <label for="dataNascimento">Data de Nascimento:</label> 
+                <input type="date" name="dataNascimento" id="inDataNascimento"> 
+            </div>   
+            <br> 
+            <div>
+                <label for="genero">Gênero: </label>
+                F<input type="radio" name="genero" value="Feminino">
+                M<input type="radio" name="genero" value="Masculino">
+            </div>
+            <br>
+            <div>
+                <label for="endereco">Endereço:</label> 
+                <input type="text" name="endereco" id="inEndereco">
+            </div>
+            <br>
+            <div>
+                <label for="telefone">Telefone:</label> 
+                <input type="tel" name="telefone" id="inTelefone">
+            </div>
+            <br>
+            <div>
+                <label for="email">E-mail:</label> 
+                <input type="email" name="email" id="inEmail">
+            </div>
+            <br>
+            <div>
+                <input type="button" value="Cadastrar" onclick="mostrarInformacoes()">
+            </div>
+        </fieldset> 
+    </form>
+      <div id="outNome"></div>
+      <div id="outDataNasc"></div>
+      <div id="outGenero"></div>
+      <div id="outEndereco"></div>
+      <div id="outTelefone"></div>
+      <div id="outEmail"></div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
