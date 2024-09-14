@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Agendamento</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <?php require "./pages/header.php" ?>  
+    <title>Sistema de Agendamento</title> 
 </head>
 <body>
     <form action="./informacoes.html" method="post" id="form">
@@ -47,12 +44,13 @@
             </div>
         </fieldset> 
     </form>
+    <hr>
     <div id="outNome"></div>
     <div id="outDataNasc"></div>
     <div id="outGenero"></div>
     <div id="outEndereco"></div>
     <div id="outTelefone"></div>
     <div id="outEmail"></div>
-    <script src="./js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
