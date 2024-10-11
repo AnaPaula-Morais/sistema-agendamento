@@ -1,56 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
 <head>
-    <?php require "./pages/header.php" ?>  
-    <title>Sistema de Agendamento</title> 
+  <?php
+  require './pages/header.php';
+
+  ?>
+
 </head>
+
 <body>
-    <form action="./informacoes.html" method="post" id="form">
-        <fieldset>
-            <legend>Dados Pessoais</legend>
-            <div>
-                <label for="nome">Nome:</label> 
-                <input type="text" name="nome" id="inNome">
-            </div>
-            <br>
-            <div>
-                <label for="dataNascimento">Data de Nascimento:</label> 
-                <input type="date" name="dataNascimento" id="inDataNascimento"> 
-            </div>   
-            <br> 
-            <div>
-                <label for="genero">Gênero: </label>
-                F<input type="radio" name="genero" value="Feminino">
-                M<input type="radio" name="genero" value="Masculino">
-            </div>
-            <br>
-            <div>
-                <label for="endereco">Endereço:</label> 
-                <input type="text" name="endereco" id="inEndereco">
-            </div>
-            <br>
-            <div>
-                <label for="telefone">Telefone:</label> 
-                <input type="tel" name="telefone" id="inTelefone">
-            </div>
-            <br>
-            <div>
-                <label for="email">E-mail:</label> 
-                <input type="email" name="email" id="inEmail">
-            </div>
-            <br>
-            <div>
-                <input type="submit" id="cadastrar" value="Cadastrar" onclick="mostrarInformacoes()">
-            </div>
-        </fieldset> 
-    </form>
-    <hr>
-    <div id="outNome"></div>
-    <div id="outDataNasc"></div>
-    <div id="outGenero"></div>
-    <div id="outEndereco"></div>
-    <div id="outTelefone"></div>
-    <div id="outEmail"></div>
-    <script src="./assets/js/script.js"></script>
+  <main class="d-flex flex-nowrap">
+    <?php
+    require './pages/aside.php';
+
+    ?>
+
+    <div class="d-flex flex-column flex-shrink-0 ">
+      <h4>Bem vindo(a) ao Fisio Care seu sistema de agendamento <br> de consultas!</h4>
+    </div>
+
+  </main>
+  <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script src="sidebars.js"></script>
 </body>
+
 </html>
