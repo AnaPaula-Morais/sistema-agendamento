@@ -52,22 +52,22 @@
             </div>
             <div class="col-auto">
                 <label for="sexoCliente">Sexo</label>
-                <select class="custom-select mr-sm-2" id="sexoCliente">
+                <select class="custom-select mr-sm-2" id="sexoCliente" name="sexoCliente">
                     <option selected>Escolher...</option>
-                    <option value="1">F</option>
-                    <option value="2">M</option>
+                    <option value="F">F</option>
+                    <option value="M">M</option>
                 </select>
             </div>
             <div class="col-auto">
                 <label for="dataNascimento">Data de Nascimento</label>
-                <input type="date" class="form-control" name="dtNasci" id="dataNascimento">
+                <input type="date" class="form-control" name="dataNascimento" id="dataNascimento">
             </div>
             <div class="col-auto">
                 <label for="convenioCliente">Convênio</label>
-                <select class="custom-select mr-sm-2" id="convenioCliente">
+                <select class="custom-select mr-sm-2" name="convenioCliente" id="convenioCliente">
                     <option selected>Escolher...</option>
-                    <option value="1">Particular</option>
-                    <option value="2">Convênio</option>
+                    <option value="particular">Particular</option>
+                    <option value="convenio">Convênio</option>
                 </select>
             </div>
         </div>
@@ -77,8 +77,8 @@
                 <input type="text" class="form-control" name="inputEndereco" id="inputEndereco">
             </div>
             <div class="form-group col-5">
-                <label for="inputCity">Cidade</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label for="inputCidade">Cidade</label>
+                <input type="text" class="form-control" name="inputCidade"  id="inputCidade">
             </div>
 
         </div>
@@ -89,7 +89,11 @@
             </div>
             <div class="col-auto">
                 <label for="inputTelefone">Telefone</label>
-                <input type="tel" class="form-control" id="inputTelefone">
+                <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone">
+            </div>
+            <div class="col-auto">
+                <label for="inputCPF">CPF</label>
+                <input type="number" class="form-control" id="inputCPF" name="inputCPF">
             </div>
         </div>
         <div class="form-row">
@@ -98,7 +102,7 @@
         </div>
         <div class="form-group col-5 p-0">
             <label for="textarea">Observações</label>
-            <textarea class="form-control" id="textarea" rows="4"></textarea>
+            <textarea class="form-control" id="textarea" name="textarea" rows="4"></textarea>
         </div>
         <button type="submit" name="submit" class="btn btn-primary">Cadastrar Cliente</button>
     </form>
