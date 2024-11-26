@@ -12,13 +12,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!--Link da biblioteca do calendario-->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src="./assets/js/index.global.min.js"></script>
+    <script src="./assets/js/core/locales-all.global.min.js"></script>
+    <script src="./assets/js/calendario.js"></script>
     <script>
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+          locale: 'pt-br'
         });
         calendar.render();
       });
@@ -41,10 +44,10 @@
         <a class="nav-link" href="./novo-cliente.html">Cadastrar Cliente</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Clientes</a>
+        <a class="nav-link" href="./clientes.php">Clientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Agendar Consultas</a>
+        <a class="nav-link" href="./novo-agendamento.html">Agendar Consultas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Configurações</a>

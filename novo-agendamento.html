@@ -25,13 +25,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php">Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./cadastro-cliente.php">Cadastrar Cliente</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./novo-cliente.html">Cadastrar Cliente</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./clientes.php">Clientes</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="./novo-agendamento.html">Agendar Consultas</a>
                 </li>
                 <li class="nav-item">
@@ -44,23 +44,32 @@
             </form>
         </div>
     </nav>
-    <form action="./cadastrar-cliente.php" method="post" class="m-4">
+    <form action="./cadastrar-agendamento.php" method="post" class="m-4">
         <div class="form-row">
-            <div class="col-5">
-                <label for="nomeCliente">Nome</label>
-                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente">
+            <div class="col-8">
+                <label for="idCliente">Id Cliente</label>
+                <input type="number" class="form-control" name="idCliente" id="idCliente">
             </div>
-            <div class="col-auto">
-                <label for="sexoCliente">Sexo</label>
-                <select class="custom-select mr-sm-2" id="sexoCliente" name="sexoCliente">
+
+            
+            <div class="col-8">
+                <label for="inputProfissional">Profissional</label>
+                <select class="custom-select mr-sm-2" name="inputProfissional" id="inputProfissional">
                     <option selected>Escolher...</option>
-                    <option value="F">F</option>
-                    <option value="M">M</option>
+                    <option value="profissional1">Profissional 1</option>
+                    <option value="profissional2">Profissional 2</option>
                 </select>
             </div>
+            <div class="col-4">
+
+            </div>
             <div class="col-auto">
-                <label for="dataNascimento">Data de Nascimento</label>
-                <input type="date" class="form-control" name="dataNascimento" id="dataNascimento">
+                <label for="dataConsulta">Data da Consulta</label>
+                <input type="date" class="form-control" name="dataConsulta" id="dataConsulta">
+            </div>
+            <div class="col-auto">
+                <label for="horaConsulta">Horário</label>
+                <input type="time" class="form-control" name="horaConsulta" id="horaConsulta">
             </div>
             <div class="col-auto">
                 <label for="convenioCliente">Convênio</label>
@@ -70,41 +79,12 @@
                     <option value="convenio">Convênio</option>
                 </select>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="col-5">
-                <label for="inputEndereco">Endereço</label>
-                <input type="text" class="form-control" name="inputEndereco" id="inputEndereco">
-            </div>
-            <div class="form-group col-5">
-                <label for="inputCidade">Cidade</label>
-                <input type="text" class="form-control" name="inputCidade"  id="inputCidade">
-            </div>
-
-        </div>
-        <div class="form-row">
-            <div class="col-5">
-                <label for="emailCliente">E-mail</label>
-                <input type="text" class="form-control" name="emailCliente" id="emailCliente">
-            </div>
-            <div class="col-auto">
-                <label for="inputTelefone">Telefone</label>
-                <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone">
-            </div>
-            <div class="col-auto">
-                <label for="inputCPF">CPF</label>
-                <input type="number" class="form-control" id="inputCPF" name="inputCPF">
-            </div>
-        </div>
-        <div class="form-row">
-
-
-        </div>
+        </div>        
         <div class="form-group col-5 p-0">
-            <label for="textarea">Observações</label>
-            <textarea class="form-control" id="textarea" name="textarea" rows="4"></textarea>
+            <label for="motivoConsulta">Motivo da consulta</label>
+            <textarea class="form-control" id="motivoConsulta" name="motivoConsulta" rows="4"></textarea>
         </div>
-        <button type="submit" name="submit" class="btn btn-primary">Cadastrar Cliente</button>
+        <button type="submit" name="submit" class="btn btn-primary">Confirmar agendamento</button>
     </form>
 </body>
 
