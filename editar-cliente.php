@@ -1,3 +1,24 @@
+<?php 
+    require ("./conexao.php");
+
+    if(isset($_GET['id'])){
+        $id = intval($_GET['id']);
+
+
+        $query = "SELECT * FROM clientes WHERE id = :id";
+        $stmt = $pdo -> prepare($query);
+        $stmt-> bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if(!$cliente){
+            die("cliente inválido");
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +46,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php">Home</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="./novo-cliente.html">Cadastrar Cliente</a>
                 </li>
                 <li class="nav-item">
@@ -46,13 +67,15 @@
     </nav>
     <form action="./cadastrar-cliente.php" method="post" class="m-4">
         <div class="form-row">
+<!-- este input existe para usa o id pars fazer o update do cliente-->
+            <input type="hidden" name="id"  value="<?php echo htmlspecialchars($cliente['id']); ?>">
             <div class="col-5">
                 <label for="nomeCliente">Nome</label>
-                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente">
+                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" value="<?php echo htmlspecialchars($cliente['nome']); ?>" required>
             </div>
             <div class="col-auto">
                 <label for="sexoCliente">Sexo</label>
-                <select class="custom-select mr-sm-2" id="sexoCliente" name="sexoCliente">
+                <select class="custom-select mr-sm-2" id="sexoCliente" name="sexoCliente" value="<?php echo htmlspecialchars($cliente['sexo']); ?>" required>
                     <option selected>Escolher...</option>
                     <option value="F">F</option>
                     <option value="M">M</option>
@@ -60,11 +83,11 @@
             </div>
             <div class="col-auto">
                 <label for="dataNascimento">Data de Nascimento</label>
-                <input type="date" class="form-control" name="dataNascimento" id="dataNascimento">
+                <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" value="<?php echo htmlspecialchars($cliente['dataNascimento']); ?>" required>
             </div>
             <div class="col-auto">
                 <label for="convenioCliente">Convênio</label>
-                <select class="custom-select mr-sm-2" name="convenioCliente" id="convenioCliente">
+                <select class="custom-select mr-sm-2" name="convenioCliente" id="convenioCliente" value="<?php echo htmlspecialchars($cliente['convenio']); ?>" required>
                     <option selected>Escolher...</option>
                     <option value="particular">Particular</option>
                     <option value="convenio">Convênio</option>
@@ -74,26 +97,26 @@
         <div class="form-row">
             <div class="col-5">
                 <label for="inputEndereco">Endereço</label>
-                <input type="text" class="form-control" name="inputEndereco" id="inputEndereco">
+                <input type="text" class="form-control" name="inputEndereco" id="inputEndereco" value="<?php echo htmlspecialchars($cliente['endereco']); ?>" required>
             </div>
             <div class="form-group col-5">
                 <label for="inputCidade">Cidade</label>
-                <input type="text" class="form-control" name="inputCidade"  id="inputCidade">
+                <input type="text" class="form-control" name="inputCidade"  id="inputCidade" value="<?php echo htmlspecialchars($cliente['cidade']); ?>" required>
             </div>
 
         </div>
         <div class="form-row">
             <div class="col-5">
                 <label for="emailCliente">E-mail</label>
-                <input type="text" class="form-control" name="emailCliente" id="emailCliente">
+                <input type="text" class="form-control" name="emailCliente" id="emailCliente" value="<?php echo htmlspecialchars($cliente['email']); ?>" required>
             </div>
             <div class="col-auto">
                 <label for="inputTelefone">Telefone</label>
-                <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone">
+                <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone" value="<?php echo htmlspecialchars($cliente['telefone']); ?>" required>
             </div>
             <div class="col-auto">
                 <label for="inputCPF">CPF</label>
-                <input type="number" class="form-control" id="inputCPF" name="inputCPF">
+                <input type="number" class="form-control" id="inputCPF" name="inputCPF" value="<?php echo htmlspecialchars($cliente['cpf']); ?>" required>
             </div>
         </div>
         <div class="form-row">
@@ -104,7 +127,8 @@
             <label for="textarea">Observações</label>
             <textarea class="form-control" id="textarea" name="textarea" rows="4"></textarea>
         </div>
-        <button type="submit" name="submit" class="btn btn-primary">Cadastrar Cliente</button>
+        <button type="submit" name="submit" class="btn btn-primary">Salvar alterações</button>
+        <button onclick="window.location.href='clientes.php'" type="submit" name="submit" class="btn btn-danger">Cancelar</button>
     </form>
 </body>
 

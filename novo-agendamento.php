@@ -32,7 +32,7 @@
                     <a class="nav-link" href="./clientes.php">Clientes</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="./novo-agendamento.html">Agendar Consultas</a>
+                    <a class="nav-link" href="./novo-agendamento.php">Agendar Consultas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Configurações</a>
@@ -44,17 +44,18 @@
             </form>
         </div>
     </nav>
+    <!-- rever como os formularios funcionam -->
     <form action="./cadastrar-agendamento.php" method="post" class="m-4">
         <div class="form-row">
             <div class="col-8">
                 <label for="idCliente">Id Cliente</label>
-                <input type="number" class="form-control" name="idCliente" id="idCliente">
+                <input type="number" class="form-control" name="idCliente" id="idCliente" required>
             </div>
 
             
             <div class="col-8">
                 <label for="inputProfissional">Profissional</label>
-                <select class="custom-select mr-sm-2" name="inputProfissional" id="inputProfissional">
+                <select class="custom-select mr-sm-2" name="inputProfissional" id="inputProfissional" required>
                     <option selected>Escolher...</option>
                     <option value="profissional1">Profissional 1</option>
                     <option value="profissional2">Profissional 2</option>
@@ -65,15 +66,15 @@
             </div>
             <div class="col-auto">
                 <label for="dataConsulta">Data da Consulta</label>
-                <input type="date" class="form-control" name="dataConsulta" id="dataConsulta">
+                <input type="date" class="form-control" name="dataConsulta" id="dataConsulta" required>
             </div>
             <div class="col-auto">
                 <label for="horaConsulta">Horário</label>
-                <input type="time" class="form-control" name="horaConsulta" id="horaConsulta">
+                <input type="time" class="form-control" name="horaConsulta" id="horaConsulta" required>
             </div>
             <div class="col-auto">
                 <label for="convenioCliente">Convênio</label>
-                <select class="custom-select mr-sm-2" name="convenioCliente" id="convenioCliente">
+                <select class="custom-select mr-sm-2" name="convenioCliente" id="convenioCliente" required>
                     <option selected>Escolher...</option>
                     <option value="particular">Particular</option>
                     <option value="convenio">Convênio</option>

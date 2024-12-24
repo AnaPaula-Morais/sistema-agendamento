@@ -47,7 +47,7 @@
         <a class="nav-link" href="./clientes.php">Clientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./novo-agendamento.html">Agendar Consultas</a>
+        <a class="nav-link" href="./novo-agendamento.php">Agendar Consultas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Configurações</a>
