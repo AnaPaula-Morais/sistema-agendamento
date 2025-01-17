@@ -53,6 +53,7 @@
         <a class="nav-link" href="#">Configurações</a>
       </li>
     </ul>
+    <li><a href="logout.php" onclick="return confirm('Tem certeza que deseja sair?');">Sair</a></li>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2 " type="search" placeholder="Pesquisar" aria-label="Pesquisar">
       <button class="btn btn-light my-2 my-sm-0 " type="submit">Pesquisar</button>
@@ -60,7 +61,18 @@
   </div>
 </nav>
 <div class="m-4">
-    <h2>Bem-vindo(a) ao seu sistema de agendamento!!</h2>
+    <h2>
+      <?php 
+        session_start(); // Certifique-se de iniciar a sessão
+
+        if (isset($_SESSION['usuario_nome'])) {
+            echo "<h2>Bem-vindo(a), " . htmlspecialchars($_SESSION['usuario_nome']) . " ao seu sistema de agendamento!</h2>";
+        } else {
+            echo "<h2>Bem-vindo ao sistema de agendamento!</h2>";
+        }
+      ?>
+    </h2>
+    
 </div>
 <div id="calendar"></div>
 </body>

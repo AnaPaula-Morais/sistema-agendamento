@@ -95,7 +95,8 @@
                         <td><?= htmlspecialchars($cliente['cpf']) ?></td>
                         <td><?= htmlspecialchars($cliente['email']) ?></td>
                         <td>
-                            <button class="btn btn-primary">Agendar</button>
+                            <button onclick="window.location.href='novo-agendamento.php?id=<?php echo $cliente['id']; ?>'" class="btn btn-primary">Agendar</button>
+
                             <button onclick="window.location.href='editar-cliente.php?id=<?php echo $cliente['id']; ?>'" class="btn btn-success">Editar</button>
                             
                             <form method="post" action="./deleta-cliente.php">

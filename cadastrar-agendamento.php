@@ -13,6 +13,9 @@
     // se os campos estiverem preenchidos
     if($idCliente && $profissional && $dataConsulta && $horaConsulta && $convenio && $motivoConsulta){
         $pdo -> query("INSERT INTO agendamentos(profissional, dataConsulta, horaConsulta, convenio, motivoConsulta, Clientes_id) VALUES ('$profissional', '$dataConsulta', '$horaConsulta', '$convenio', '$motivoConsulta', '$idCliente')");
+
+        //isto é um função para redirecionar para outra página
+        header("location:./index.php");
     }else{
 
         echo "id cliente enviado:".$idCliente .'<br>';
@@ -22,6 +25,7 @@
         echo $convenio .'<br>';
         echo $motivoConsulta .'<br>';
     }
+    
 
     // como fazer debug?
 

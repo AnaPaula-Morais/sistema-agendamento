@@ -1,3 +1,10 @@
+<?php 
+$id= "";
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +56,7 @@
         <div class="form-row">
             <div class="col-8">
                 <label for="idCliente">Id Cliente</label>
-                <input type="number" class="form-control" name="idCliente" id="idCliente" required>
+                <input type="number" class="form-control" name="idCliente" id="idCliente" value="<?php echo $id; ?>" required>
             </div>
 
             
