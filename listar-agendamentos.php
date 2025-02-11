@@ -2,57 +2,54 @@
     require ("./conexao.php");
     session_start(); // Inicia a sessão
     try {
-        $sql = "SELECT id, nome, sexo, dataNascimento, cpf, convenio,endereco, telefone, cidade, email, obs FROM clientes";
+        $sql = "SELECT agendamentos.id, agendamentos.dataConsulta, agendamentos.horaConsulta, 
+                   clientes.nome AS nomeCliente FROM agendamentos JOIN clientes ON agendamentos.Clientes_id = clientes.id";
         $stmt = $pdo->query($sql);
-        $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $agendamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo "Erro ao buscar clientes: " . $e->getMessage();
+        echo "Erro ao buscar agendamentoss: " . $e->getMessage();
         exit;
     }
-    
-
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
-    $senha = $_POST['senha'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $senha = $_POST['senha'] ?? '';
+        
     
-
-    if (empty($email) || empty($senha)) {
-        echo "Preencha todos os campos!";
-    } else {
-        try {
-            // Consulta o usuário no banco de dados
-            $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->execute();
-
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($usuario && password_verify($senha, $usuario['senha'])) {
-                // Login bem-sucedido, define variáveis de sessão
-                $_SESSION['usuario_id'] = $usuario['id'];
-                $_SESSION['usuario_nome'] = $usuario['nome'];
-                $_SESSION['usuario_tipo'] = $usuario['tipo'];
-                header("Location: paginaInicial.php"); // Redireciona para a página principal
-                exit;
-            } else {
-                echo "Email ou senha incorretos!";
+        if (empty($email) || empty($senha)) {
+            echo "Preencha todos os campos!";
+        } else {
+            try {
+                // Consulta o usuário no banco de dados
+                $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+                $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+                $stmt->execute();
+    
+                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+                if ($usuario && password_verify($senha, $usuario['senha'])) {
+                    // Login bem-sucedido, define variáveis de sessão
+                    $_SESSION['usuario_id'] = $usuario['id'];
+                    $_SESSION['usuario_nome'] = $usuario['nome'];
+                    $_SESSION['usuario_tipo'] = $usuario['tipo'];
+                    header("Location: paginaInicial.php"); // Redireciona para a página principal
+                    exit;
+                } else {
+                    echo "Email ou senha incorretos!";
+                }
+            } catch (PDOException $e) {
+                echo "Erro ao acessar o banco de dados: " . $e->getMessage();
             }
-        } catch (PDOException $e) {
-            echo "Erro ao acessar o banco de dados: " . $e->getMessage();
         }
     }
-    }
-
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
+    <title>Listar agendamentos</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <!--links bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -75,6 +72,7 @@
         th {
             background-color: #f2f2f2;
         }
+
     </style>
 </head>
 <body>
@@ -92,11 +90,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./novo-cliente.html">Cadastrar Cliente</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Clientes</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./clientes.php">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./listar-agendamentos.php">Agendamentos</a>
+                    <a class="nav-link active" href="./listar-agendamentos.php">Agendamentos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Configurações</a>
@@ -108,44 +106,44 @@
             </form>
         </div>
     </nav>
+
     <div class="m-3">
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de Agendamentos</h1>
         <table>
             <thead>
                 <th>ID</th>
                 <th>NOME</th>
-                <th>DATA DE NASCIMENTO</th>
-                <th>CPF</th>
-                <th>EMAIL</th>
+                <th>DATA DA CONSULTA</th>
+                <th>HORA DA CONSULTA</th>
                 <th>OPÇÕES</th>
             </thead>
             <tbody>
-            <?php foreach ($clientes as $cliente): ?>
+                <?php foreach ($agendamentos as $agendamento): ?>
                     <tr>
-                        <td><?= htmlspecialchars($cliente['id']) ?></td>
-                        <td><?= htmlspecialchars($cliente['nome']) ?></td>
-                        <td><?= htmlspecialchars($cliente['dataNascimento']) ?></td>
-                        <td><?= htmlspecialchars($cliente['cpf']) ?></td>
-                        <td><?= htmlspecialchars($cliente['email']) ?></td>
+                        <td><?= htmlspecialchars($agendamento['id']) ?></td>
+                        <td><?= htmlspecialchars($agendamento['nomeCliente']) ?></td>
+                        <td><?= htmlspecialchars($agendamento['dataConsulta']) ?></td>
+                        <td><?= htmlspecialchars($agendamento['horaConsulta']) ?></td>
                         <td>
-                            <button onclick="window.location.href='novo-agendamento.php?id=<?php echo $cliente['id']; ?>'" class="btn btn-primary">Agendar</button>
-
                             <?php if($_SESSION['usuario_tipo'] == 'admin'): ?>
 
-                            <button onclick="window.location.href='editar-cliente.php?id=<?php echo $cliente['id']; ?>'" class="btn btn-success">Editar</button>
+                            <button onclick="window.location.href='editar-cliente.php?id=<?php echo $agendamento['id']; ?>'" class="btn btn-success">Editar</button>
 
-                            
-                            <form method="post" action="./deleta-cliente.php">
-                                <input  name="id" type="hidden" value="<?php echo $cliente['id']; ?>">
+                            <form method="post" action="./deleta-agendamento.php">
+                                <input  name="id" type="hidden" value="<?php echo $agendamento['id']; ?>">
 
-                                <input type="submit" onclick="return excluirRegistro('<?= htmlspecialchars($cliente['nome'])?>')" class="btn btn-danger" value="Excluir"></input>
+                                <input type="submit" onclick="return excluirRegistro('<?= htmlspecialchars($agendamento['id'])?>')" class="btn btn-danger" value="Excluir"></input>
                             </form>
 
-                        </form>
-                        <?php endif; ?>
+                    
+                            <?php endif; ?>
+                        </td>
                         </td>
                     </tr>
-            <?php endforeach; ?>
+
+                
+
+                <?php endforeach; ?>
     
             </tbody>
         </table>

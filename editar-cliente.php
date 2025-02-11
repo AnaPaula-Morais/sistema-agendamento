@@ -1,6 +1,6 @@
 <?php 
     require ("./conexao.php");
-
+    session_start();
     if(isset($_GET['id'])){
         $id = intval($_GET['id']);
 
@@ -15,6 +15,11 @@
         if(!$cliente){
             die("cliente inválido");
         }
+    }
+
+    if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_tipo'] != 'admin') {
+        echo "Acesso negado, somente o administrador poderá alterar esta página!";
+        exit();
     }
 
 ?>
@@ -44,7 +49,7 @@
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php">Home</a>
+                    <a class="nav-link" href="./paginaInicial.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./novo-cliente.html">Cadastrar Cliente</a>

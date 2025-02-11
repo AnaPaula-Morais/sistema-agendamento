@@ -5,7 +5,7 @@
 
         $id = intval($_POST['id']);
     
-        $query = " DELETE FROM clientes WHERE id = :id";
+        $query = " DELETE FROM agendamentos WHERE id = :id";
         $stmt = $pdo -> prepare($query);
         $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
         $stmt ->execute();
@@ -16,7 +16,7 @@
         echo "Acesso negado, somente o administrador poderá alterar esta página!";
         exit();
     }
-    header("location:./clientes.php");
+    header("location:./listar-agendamentos.php");
 
 
 

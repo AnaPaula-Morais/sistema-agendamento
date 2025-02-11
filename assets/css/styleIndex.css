@@ -1,0 +1,9 @@
+.form{
+    margin: 40px;
+}
+.div1{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top:50px;
+    width: 50%;
+}
