@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,7 +41,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="index.php"><img class="img-logo" src="./assets/logoSer.png" alt="logo"></a>
+  <a class="navbar-brand" href="paginaInicial.php"><img class="img-logo" src="./assets/logo.png" alt="logo"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -56,9 +60,11 @@
       <li class="nav-item">
         <a class="nav-link" href="./listar-agendamentos.php">Agendamentos</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Configurações</a>
-      </li>
+      <?php if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'admin'): ?>
+        <hr>
+          <li class="nav-item"><a class="nav-link" href="cadastrar-usuario.php">Cadastrar Usuário</a></li>
+      <?php endif; ?>
+
     </ul>
     
     <form class="form-inline my-2 my-lg-0">
@@ -71,8 +77,6 @@
 <div class="m-4">
     <h2>
       <?php 
-        session_start(); // Certifique-se de iniciar a sessão
-
         if (isset($_SESSION['usuario_nome'])) {
             echo "<h2>Bem-vindo(a), " . htmlspecialchars($_SESSION['usuario_nome']) . " ao seu sistema de agendamento!</h2>";
         } else {

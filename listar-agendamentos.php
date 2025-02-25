@@ -72,12 +72,18 @@
         th {
             background-color: #f2f2f2;
         }
-
+    
+        .linkSair{
+        color: white;
+        margin-left: 10px;
+        
+      }
+    
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index.php"><img class="img-logo" src="./assets/logoSer.png" alt="logo"></a>
+        <a class="navbar-brand" href="./paginaInicial.php"><img class="img-logo" src="./assets/logo.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -103,6 +109,7 @@
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2 " type="search" placeholder="Pesquisar" aria-label="Pesquisar">
                 <button class="btn btn-light my-2 my-sm-0 " type="submit">Pesquisar</button>
+                <a class="linkSair" href="./logout.php" onclick="return confirm('Tem certeza que deseja sair?');">Sair</a>
             </form>
         </div>
     </nav>
@@ -130,7 +137,7 @@
                             <button onclick="window.location.href='editar-cliente.php?id=<?php echo $agendamento['id']; ?>'" class="btn btn-success">Editar</button>
 
                             <form method="post" action="./deleta-agendamento.php">
-                                <input  name="id" type="hidden" value="<?php echo $agendamento['id']; ?>">
+                                <input  name="id" type="hidden" value="<?php echo $agendamento['id']; ?>"> <br>
 
                                 <input type="submit" onclick="return excluirRegistro('<?= htmlspecialchars($agendamento['id'])?>')" class="btn btn-danger" value="Excluir"></input>
                             </form>

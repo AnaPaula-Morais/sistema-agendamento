@@ -1,6 +1,13 @@
 <?php 
     require ("./conexao.php");
 
+    session_start();
+
+    if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_tipo'] != 'admin') {
+        echo "<script>alert('Acesso negado! Somente administradores podem acessar esta página.'); window.location.href = 'index.html';</script>";
+        exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = $_POST['nome'] ?? '';
         $email = $_POST['email'] ?? '';
@@ -52,8 +59,8 @@
         }
     </style>
 </head>
-<body>
-    <div class="container div1">
+<body style="background-color: #007BFF;">
+    <div style="background-color: white;" class="container div1">
         <h2 class="m-4">Cadastrar novo usuário</h2>
         <div class="m-5">
             <form class="form" method="POST" action="">

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--Links bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img class="img-logo" src="./assets/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#sobre">Sobre</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#servicos">Nossos serviços</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="./login.php">Login</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+      </nav>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="./assets/imagem1.jpg" alt="Primeiro Slide"/>
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: black; font-size: 50px;">Venha conhecer nossa clinica</h5>
+            <p style="color: white; font-size: 20px;">Sua saúde e seu bem estar é a nossa prioridade</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="./assets/imagem2.jpg" alt="Segundo Slide"/>
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: black; font-size: 50px;">Serviços de reabilitação</h5>
+            <p style="color: white; font-size: 20px;">Aqui temos os melhores profissionais</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev"href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+    <section class="container py-5 m-5" id="sobre">
+        <h2 style="color: black; font-size: 50px;">Quem Somos</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p style="font-size: 20px;">
+                    Somos especializados em proporcionar saúde, bem-estar e qualidade de vida aos nossos pacientes. Com uma equipe de fisioterapeutas altamente qualificados e um atendimento humanizado, oferecemos tratamentos personalizados para recuperação muscular, reabilitação pós-cirúrgica, alívio de dores crônicas e melhoria do desempenho físico.
+
+                    Nosso espaço é equipado com tecnologia de ponta e um ambiente acolhedor, pensado para oferecer conforto e segurança em cada sessão. Nosso compromisso é cuidar de você com dedicação e profissionalismo, ajudando-o a retomar suas atividades com saúde e disposição.
+                    
+                    Agende uma visita e descubra como podemos fazer a diferença na sua recuperação!
+                </p>
+            </div>
+        
+            <div class="col-md-6">
+                <img class="img-fluid rounded"  src="./assets/imagem3.jpg" width="450px" alt="">
+            </div>
+        </div>
+    </section>
+    <section style="background-color: cadetblue; padding-bottom: 40px;padding-top: 50px;"  py-5 m-5 w-100" id="servicos">
+        <div class="container">
+            <h2 style="color: black; font-size: 50px;padding-bottom: 40px;">Nossos Serviços</h2>
+            <div  class="row text-center">
+                <div class="col-md-4">
+                    <img src="./assets/fisioterapia-respiratoria.jpg" class="img-fluid rounded mb-3" alt="Serviço 1">
+                    <h4>Fisioterapia Respiratória</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="./assets/reabilitacaoCardiopulmonar.jpg" class="img-fluid rounded mb-3" alt="Serviço 1">
+                    <h4>Reabilitação Cardiopulmonar</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="./assets/traumaortopedica1.jpg" class="img-fluid rounded mb-3" alt="Serviço 1">
+                    <h4>Fisioterapia traumaortopédica</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div  class="row text-center">
+                <div class="col-md-4">
+                    <img src="./assets/neurofuncional.jpg" class="img-fluid rounded mb-3" alt="Serviço 1">
+                    <h4>Fisioterapia Neurofuncional</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="./assets/dermatofuncional1.jpg" class="img-fluid rounded mb-3" alt="Serviço 1">
+                    <h4>Fisioterapia estética</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="./assets/atendimentoDomiciliar.jpg" class="img-fluid rounded mb-3" alt="Serviço 1">
+                    <h4>Atendimento Domiciliar</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="margin: 20px;;" class="text-center">
+       <p> Clinica de Fisioterapia - 2025</p>
+       
+    </footer>
+</body>
+</html>

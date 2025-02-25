@@ -4,3 +4,5 @@ function excluirRegistro(nome){
     // enviar para o servidor o id do cliente que precisa ser deletado, é para ser feito com js(fetch)
 }
 
+
+

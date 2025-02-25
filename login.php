@@ -49,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/styleIndex.css">
 </head>
-<body>
-        <div class="container div1">
+<body style="background-color: #007BFF;">
+        <div style="background-color: white;" class="container div1">
             <h2 class="m-5">Login</h2>
             <div class="form">
                 <form class="form" action="" method="post">
